@@ -1,0 +1,79 @@
+<!doctype html><html lang="tr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>OrosBook Kitaplık</title>
+<style>
+:root{--bg:#d9ecb8;--card:rgba(255,255,255,.9);--text:#12351f;--text2:#3d5a45;--accent:#0b7a3b;--line:rgba(11,122,59,.25);--gold:#b8860b}
+:root[data-theme="night"]{--bg:#050A18;--card:rgba(7,22,80,.84);--text:#eaf2ff;--text2:#9db4d8;--accent:#67e8f9;--line:rgba(103,232,249,.3);--gold:#f2cf7a}
+*{box-sizing:border-box}html,body{margin:0;overflow-x:clip}body{background:var(--bg);color:var(--text);font-family:system-ui,-apple-system,Segoe UI,sans-serif;min-height:100vh;padding:20px 16px 40px}
+.w{max-width:560px;margin:0 auto}
+.back{display:inline-block;padding:8px 16px;border-radius:999px;border:1px solid var(--accent);color:var(--accent);text-decoration:none;font-weight:700;font-size:13px}
+h1{margin:22px 0 4px;font-size:28px;text-align:center}.sub{text-align:center;color:var(--text2);margin:0 0 8px;font-size:14px}
+h2{margin:30px 0 10px;font-size:13px;letter-spacing:.18em;text-transform:uppercase;color:var(--gold)}
+.card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:16px;margin-bottom:10px;display:flex;gap:12px;align-items:center;justify-content:space-between}
+.card b{display:block;font-size:16px;overflow-wrap:anywhere}.card span.d{display:block;font-size:13px;color:var(--text2);margin-top:3px}
+.btn{flex:none;padding:9px 16px;border-radius:999px;background:linear-gradient(135deg,#fff0c0,#e9b84a);color:#3d2900;text-decoration:none;font-weight:800;font-size:13px}
+.soon{flex:none;font-size:12px;font-weight:700;color:var(--text2);border:1px dashed var(--line);border-radius:999px;padding:7px 12px}
+html[lang="tr"] .en,html[lang="en"] .tr{display:none}
+</style>
+<style id="av-petek-std">
+/* ============================================================
+   STANDART PETEK BACKGROUND  ·  Version 1.0  ·  av-petek-std
+   Atlasverse Ecosystem: Shared Visual Standard
+   Biyolojik referans: işçi arı peteği gözü, yaklaşık 5,4 mm.
+   (5,4 mm tasarım referansıdır; CSS boyutları ekrana uyar,
+   her cihazda fiziksel 5,4 mm'ye kalibre değildir.)
+   Geometri tüm plâtformlarda aynıdır. Markalar yalnızca RENK
+   değiştirir: html[data-brand="x"] { --petek-bg; --petek-color; --petek-opacity }
+   Tema: light|day  ve  dark|night. İsteğe bağlı mod: data-mode="lady|boy".
+   ============================================================ */
+:root {
+  --petek-reference-mm: 5.4;
+  --petek-size: clamp(26px, 2.5vw, 36px);
+  --petek-height: calc(var(--petek-size) * 97 / 56);
+  --petek-bg: #f6faf1; --petek-color: #b5d99c; --petek-opacity: 0.60;
+}
+html[data-theme="light"], html[data-theme="day"] { --petek-bg: #f6faf1; --petek-color: #b5d99c; --petek-opacity: 0.60; }
+html[data-theme="dark"], html[data-theme="night"] { --petek-bg: #0b1426; --petek-color: #2a4a8a; --petek-opacity: 0.60; }
+html[data-mode="lady"] { --petek-bg: #fff6fa; --petek-color: #f5aecb; --petek-opacity: 0.75; }
+html[data-mode="lady"][data-theme="dark"], html[data-mode="lady"][data-theme="night"] { --petek-bg: #1d0f1c; --petek-color: #5c2b57; }
+html[data-mode="boy"] { --petek-bg: #eefaff; --petek-color: #9fd8ee; --petek-opacity: 0.75; }
+html[data-mode="boy"][data-theme="dark"], html[data-mode="boy"][data-theme="night"] { --petek-bg: #07101f; --petek-color: #17407e; }
+html, body { min-height: 100%; }
+html { background-color: var(--petek-bg) !important; }
+body { position: relative; isolation: isolate; background: var(--petek-bg) !important; }
+/* Kanonik petek maskesi: geometriyi değiştirme */
+body::before, :root[data-theme="night"] body::before, :root[data-theme="day"] body::before {
+  content: ""; position: fixed; inset: 0; z-index: -1; pointer-events: none;
+  background: var(--petek-color) !important; opacity: var(--petek-opacity) !important;
+  -webkit-mask-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='56' height='97' viewBox='0 0 56 97'><path d='M28 16.17L56 32.33V64.67L28 80.83L0 64.67V32.33Z M28 0V16.17 M28 80.83V97' fill='none' stroke='black' stroke-width='2.6'/></svg>");
+  mask-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='56' height='97' viewBox='0 0 56 97'><path d='M28 16.17L56 32.33V64.67L28 80.83L0 64.67V32.33Z M28 0V16.17 M28 80.83V97' fill='none' stroke='black' stroke-width='2.6'/></svg>");
+  -webkit-mask-repeat: repeat; mask-repeat: repeat;
+  -webkit-mask-size: var(--petek-size) var(--petek-height); mask-size: var(--petek-size) var(--petek-height);
+}
+@media (max-width: 360px) { :root { --petek-size: 26px; } }
+@media (min-width: 361px) and (max-width: 600px) { :root { --petek-size: 28px; } }
+@media (min-width: 601px) and (max-width: 1024px) { :root { --petek-size: 32px; } }
+@media (min-width: 1025px) { :root { --petek-size: 36px; } }
+/* END · STANDART PETEK BACKGROUND V1.0 */
+</style>
+</head><body><div class="w">
+<a class="back" href="../"><span class="tr">← OrosBook</span><span class="en">← OrosBook</span></a>
+<h1><span class="tr">Kitaplık</span><span class="en">Library</span></h1>
+<p class="sub"><span class="tr">Kitaplar, yazılar ve özdeyişler: okuyanın yolu aydınlanır.</span><span class="en">Books, writings and aphorisms: the reader's path grows light.</span></p>
+<div id="lib"></div>
+</div>
+<script>
+/* PDF eklemek için: dosyayı bu klasördeki pdf/ klasörüne koy, aşağıdaki listeye bir satır ekle (file: "pdf/dosya.pdf"). file: null ise "Yakında" görünür. */
+var LIB = [
+  { sec: { tr: 'Kitaplarım', en: 'My Books' }, items: [ { t: { tr: 'İlk kitap', en: 'First book' }, d: { tr: 'PDF olarak okunabilir.', en: 'Readable as a PDF.' }, file: null } ] },
+  { sec: { tr: 'Yazılarım', en: 'My Writings' }, items: [ { t: { tr: 'Yazılar', en: 'Writings' }, d: { tr: 'Makaleler ve düşünceler.', en: 'Essays and reflections.' }, file: null } ] },
+  { sec: { tr: 'Özdeyişlerim', en: 'My Aphorisms' }, items: [ { t: { tr: 'Özdeyişler', en: 'Aphorisms' }, d: { tr: 'Kısa ve öz sözler.', en: 'Short and distilled sayings.' }, file: null } ] }
+];
+function esc(x){return String(x).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/"/g,'&quot;')}
+function tx(o){return '<span class="tr">'+esc(o.tr)+'</span><span class="en">'+esc(o.en)+'</span>'}
+document.getElementById('lib').innerHTML = LIB.map(function(s){
+  return '<h2>'+tx(s.sec)+'</h2>'+s.items.map(function(i){
+    var r = i.file ? '<a class="btn" href="'+esc(i.file)+'" target="_blank" rel="noopener">PDF</a>' : '<span class="soon">'+tx({tr:'Yakında',en:'Soon'})+'</span>';
+    return '<div class="card"><div><b>'+tx(i.t)+'</b><span class="d">'+tx(i.d)+'</span></div>'+r+'</div>';
+  }).join('');
+}).join('');
+try{var l=localStorage.getItem('av_lang'),t=localStorage.getItem('av_theme');if(l==='en'||l==='tr')document.documentElement.lang=l;if(t==='night'||(!t&&matchMedia('(prefers-color-scheme: dark)').matches))document.documentElement.setAttribute('data-theme','night')}catch(e){}
+</script></body></html>

@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="tr" data-theme="day">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Atlas Works · Gelişim</title>
+<meta name="description" content="Atlas Works Gelişim: 45 plâtformluk ekosistemden referans çalışmalar ve yazılım / SaaS proje talebi.">
+<style>
+:root, :root[data-theme="day"]{
+  --bg:#dcebbd; --bg2:#eaf3d3; --fg:#0f1d4d; --mut:#4a5a86; --card:rgba(255,255,255,.72); --line:rgba(10,38,112,.18);
+  --brand:#1b3a8f; --brand-fg:#fff; --acc:#f59e0b; --ok:#0f7a4a; --warn:#8a5a00; --shadow:0 6px 22px rgba(15,29,77,.12);
+  --honey:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='24' height='41.5692' viewBox='0 0 24 41.5692'><g fill='none' stroke='%230a2670' stroke-opacity='.30' stroke-width='1' stroke-linejoin='round'><polygon points='0.000,-13.856 12.000,-6.928 12.000,6.928 0.000,13.856 -12.000,6.928 -12.000,-6.928'/><polygon points='24.000,-13.856 36.000,-6.928 36.000,6.928 24.000,13.856 12.000,6.928 12.000,-6.928'/><polygon points='12.000,6.928 24.000,13.856 24.000,27.713 12.000,34.641 0.000,27.713 0.000,13.856'/><polygon points='0.000,27.713 12.000,34.641 12.000,48.497 0.000,55.426 -12.000,48.497 -12.000,34.641'/><polygon points='24.000,27.713 36.000,34.641 36.000,48.497 24.000,55.426 12.000,48.497 12.000,34.641'/></g></svg>");
+}
+:root[data-theme="night"]{
+  --bg:#05070d; --bg2:#0b1020; --fg:#e8eefc; --mut:#9fb0d4; --card:rgba(16,22,40,.78); --line:rgba(180,195,220,.22);
+  --brand:#3b6cf0; --brand-fg:#fff; --acc:#fbbf24; --ok:#4ade80; --warn:#fbbf24; --shadow:0 6px 22px rgba(0,0,0,.5);
+  --honey:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='24' height='41.5692' viewBox='0 0 24 41.5692'><g fill='none' stroke='%23b4c3dc' stroke-opacity='.55' stroke-width='1' stroke-linejoin='round'><polygon points='0.000,-13.856 12.000,-6.928 12.000,6.928 0.000,13.856 -12.000,6.928 -12.000,-6.928'/><polygon points='24.000,-13.856 36.000,-6.928 36.000,6.928 24.000,13.856 12.000,6.928 12.000,-6.928'/><polygon points='12.000,6.928 24.000,13.856 24.000,27.713 12.000,34.641 0.000,27.713 0.000,13.856'/><polygon points='0.000,27.713 12.000,34.641 12.000,48.497 0.000,55.426 -12.000,48.497 -12.000,34.641'/><polygon points='24.000,27.713 36.000,34.641 36.000,48.497 24.000,55.426 12.000,48.497 12.000,34.641'/></g></svg>");
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--fg);font:16px/1.55 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;-webkit-text-size-adjust:100%}
+body::before{content:"";position:fixed;inset:0;z-index:-1;background:var(--honey) 0 0/24px 41.5692px repeat}
+.wrap{max-width:1040px;margin:0 auto;padding:0 16px}
+.top{position:sticky;top:0;z-index:20;backdrop-filter:blur(8px);background:color-mix(in srgb,var(--bg) 82%,transparent);border-bottom:1px solid var(--line)}
+.top .wrap{display:flex;align-items:center;gap:8px;min-height:52px}
+.brand{font-weight:800;letter-spacing:.12em;font-size:14px;text-decoration:none;color:var(--fg);white-space:nowrap}
+.brand small{font-weight:600;letter-spacing:.06em;color:var(--mut)}
+.sp{flex:1}
+.nav a{color:var(--mut);text-decoration:none;font-size:14px;margin-right:12px}
+.nav a:hover{color:var(--fg)}
+.tbtn{border:1px solid var(--line);background:var(--card);color:var(--fg);border-radius:999px;min-width:38px;height:38px;padding:0 12px;font:600 13px system-ui;cursor:pointer}
+.tbtn.on{background:var(--brand);color:var(--brand-fg);border-color:var(--brand)}
+.grp{display:flex;gap:6px}
+.tr,.en{display:none}
+html[lang="tr"] .tr{display:revert}
+html[lang="en"] .en{display:revert}
+html[lang="tr"] span.tr, html[lang="en"] span.en{display:inline}
+section{padding:36px 0}
+h1{font-size:clamp(28px,6.4vw,46px);line-height:1.12;margin:0 0 12px;letter-spacing:-.01em}
+h2{font-size:clamp(21px,4.6vw,28px);margin:0 0 6px}
+.lead{font-size:clamp(16px,3.6vw,19px);color:var(--mut);max-width:720px;margin:0 0 20px}
+.kicker{display:inline-block;font:700 12px system-ui;letter-spacing:.14em;text-transform:uppercase;border:1px solid var(--line);background:var(--card);border-radius:999px;padding:5px 12px;margin-bottom:14px;color:var(--brand)}
+html[data-theme="night"] .kicker{color:var(--acc)}
+.cta{display:flex;flex-wrap:wrap;gap:10px;margin-top:6px}
+.btn{display:inline-flex;align-items:center;justify-content:center;min-height:46px;padding:0 20px;border-radius:12px;border:1px solid var(--brand);background:var(--brand);color:var(--brand-fg);font:700 15px system-ui;text-decoration:none;cursor:pointer}
+.btn.alt{background:var(--card);color:var(--fg);border-color:var(--line)}
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:26px}
+.stat{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:12px;text-align:center;box-shadow:var(--shadow)}
+.stat b{display:block;font-size:clamp(20px,5vw,28px)}
+.stat span{font-size:12px;color:var(--mut)}
+.cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:12px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:16px;box-shadow:var(--shadow);min-width:0}
+.card h3{margin:0 0 6px;font-size:17px}
+.card p{margin:0;color:var(--mut);font-size:14.5px}
+.ico{font-size:22px;margin-bottom:6px}
+.feat{display:grid;grid-template-columns:repeat(auto-fill,minmax(290px,1fr));gap:14px}
+.feat .card h3{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:10px}
+.tag{font:600 11.5px system-ui;border:1px solid var(--line);border-radius:999px;padding:3px 9px;color:var(--mut)}
+.badge{font:700 11px system-ui;border-radius:999px;padding:3px 9px;white-space:nowrap}
+.b-proto{background:rgba(245,158,11,.18);color:var(--warn);border:1px solid rgba(245,158,11,.5)}
+.b-live{background:rgba(15,122,74,.16);color:var(--ok);border:1px solid rgba(15,122,74,.5)}
+.b-plan{background:transparent;color:var(--mut);border:1px dashed var(--line)}
+.legend{display:flex;flex-wrap:wrap;gap:8px 14px;align-items:center;font-size:13px;color:var(--mut);margin:8px 0 14px}
+.filters{display:flex;gap:8px;overflow-x:auto;padding:4px 0 10px;scrollbar-width:thin}
+.chip{flex:0 0 auto;border:1px solid var(--line);background:var(--card);color:var(--fg);border-radius:999px;padding:8px 14px;font:600 13.5px system-ui;cursor:pointer;white-space:nowrap}
+.chip.on{background:var(--brand);color:var(--brand-fg);border-color:var(--brand)}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:10px}
+.item{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:12px 14px;min-width:0}
+.item .h{display:flex;justify-content:space-between;gap:8px;align-items:flex-start}
+.item b{font-size:15px;overflow-wrap:anywhere}
+.item p{margin:4px 0 0;color:var(--mut);font-size:13.5px}
+.steps{counter-reset:s;display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px}
+.steps .card{position:relative;padding-top:44px}
+.steps .card::before{counter-increment:s;content:counter(s);position:absolute;top:12px;left:14px;width:26px;height:26px;border-radius:50%;background:var(--brand);color:#fff;font:700 14px/26px system-ui;text-align:center}
+form{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:18px;box-shadow:var(--shadow);display:grid;gap:12px}
+label{font:600 13.5px system-ui;display:grid;gap:5px}
+input,select,textarea{width:100%;font:16px system-ui;padding:11px 12px;border-radius:10px;border:1px solid var(--line);background:var(--bg2);color:var(--fg)}
+textarea{min-height:120px;resize:vertical}
+.row2{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.note{font-size:12.5px;color:var(--mut)}
+footer{border-top:1px solid var(--line);padding:26px 0 40px;text-align:center;color:var(--mut);font-size:13.5px}
+footer a{color:var(--mut)}
+@media (max-width:560px){.row2{grid-template-columns:1fr}.nav{display:none}.stats{gap:8px}}
+@media (max-width:380px){.brand{font-size:12px;letter-spacing:.08em}.brand small{display:none}.tbtn{min-width:34px;padding:0 9px}.top .wrap{gap:6px}}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+</style>
+
+<style id="av-petek-std">
+/* ============================================================
+   STANDART PETEK BACKGROUND  ·  Version 1.0  ·  av-petek-std
+   Atlasverse Ecosystem: Shared Visual Standard
+   Biyolojik referans: işçi arı peteği gözü, yaklaşık 5,4 mm.
+   (5,4 mm tasarım referansıdır; CSS boyutları ekrana uyar,
+   her cihazda fiziksel 5,4 mm'ye kalibre değildir.)
+   Geometri tüm plâtformlarda aynıdır. Markalar yalnızca RENK
+   değiştirir: html[data-brand="x"] { --petek-bg; --petek-color; --petek-opacity }
+   Tema: light|day  ve  dark|night. İsteğe bağlı mod: data-mode="lady|boy".
+   ============================================================ */
+:root {
+  --petek-reference-mm: 5.4;
+  --petek-size: clamp(26px, 2.5vw, 36px);
+  --petek-height: calc(var(--petek-size) * 97 / 56);
+  --petek-bg: #f6faf1; --petek-color: #b5d99c; --petek-opacity: 0.60;
+}
+html[data-theme="light"], html[data-theme="day"] { --petek-bg: #f6faf1; --petek-color: #b5d99c; --petek-opacity: 0.60; }
+html[data-theme="dark"], html[data-theme="night"] { --petek-bg: #0b1426; --petek-color: #2a4a8a; --petek-opacity: 0.60; }
+html[data-mode="lady"] { --petek-bg: #fff6fa; --petek-color: #f5aecb; --petek-opacity: 0.75; }
+html[data-mode="lady"][data-theme="dark"], html[data-mode="lady"][data-theme="night"] { --petek-bg: #1d0f1c; --petek-color: #5c2b57; }
+html[data-mode="boy"] { --petek-bg: #eefaff; --petek-color: #9fd8ee; --petek-opacity: 0.75; }
+html[data-mode="boy"][data-theme="dark"], html[data-mode="boy"][data-theme="night"] { --petek-bg: #07101f; --petek-color: #17407e; }
+html, body { min-height: 100%; }
+html { background-color: var(--petek-bg) !important; }
+body { position: relative; isolation: isolate; background: var(--petek-bg) !important; }
+/* Kanonik petek maskesi: geometriyi değiştirme */
+body::before, :root[data-theme="night"] body::before, :root[data-theme="day"] body::before {
+  content: ""; position: fixed; inset: 0; z-index: -1; pointer-events: none;
+  background: var(--petek-color) !important; opacity: var(--petek-opacity) !important;
+  -webkit-mask-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='56' height='97' viewBox='0 0 56 97'><path d='M28 16.17L56 32.33V64.67L28 80.83L0 64.67V32.33Z M28 0V16.17 M28 80.83V97' fill='none' stroke='black' stroke-width='2.6'/></svg>");
+  mask-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='56' height='97' viewBox='0 0 56 97'><path d='M28 16.17L56 32.33V64.67L28 80.83L0 64.67V32.33Z M28 0V16.17 M28 80.83V97' fill='none' stroke='black' stroke-width='2.6'/></svg>");
+  -webkit-mask-repeat: repeat; mask-repeat: repeat;
+  -webkit-mask-size: var(--petek-size) var(--petek-height); mask-size: var(--petek-size) var(--petek-height);
+}
+@media (max-width: 360px) { :root { --petek-size: 26px; } }
+@media (min-width: 361px) and (max-width: 600px) { :root { --petek-size: 28px; } }
+@media (min-width: 601px) and (max-width: 1024px) { :root { --petek-size: 32px; } }
+@media (min-width: 1025px) { :root { --petek-size: 36px; } }
+/* END · STANDART PETEK BACKGROUND V1.0 */
+</style>
+</head>
+<body>
+<header class="top"><div class="wrap">
+  <a class="brand" href="#top">ATLAS WORKS <small>· GELİŞİM</small></a>
+  <nav class="nav">
+    <a href="#hizmet"><span class="tr">Neler yapıyoruz</span><span class="en">What we build</span></a>
+    <a href="#secilmis"><span class="tr">Çalışmalar</span><span class="en">Work</span></a>
+    <a href="#talep"><span class="tr">Talep</span><span class="en">Request</span></a>
+  </nav>
+  <span class="sp"></span>
+  <div class="grp">
+    <button class="tbtn on" id="bTr" type="button" aria-label="Türkçe">TR</button>
+    <button class="tbtn" id="bEn" type="button" aria-label="English">EN</button>
+    <button class="tbtn" id="bTh" type="button" aria-label="Tema"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M12 3a9 9 0 0 0 0 18z" fill="currentColor"/></svg></button>
+  </div>
+</div></header>
+
+<main id="top">
+<section><div class="wrap">
+  <span class="kicker"><span class="tr">Referans çalışmalar</span><span class="en">Reference work</span></span>
+  <h1><span class="tr">45 plâtformu kuran ekip, sizin projenizi de kurar.</span><span class="en">The team that builds 45 platforms can build yours too.</span></h1>
+  <p class="lead"><span class="tr">Atlasverse ekosistemindeki çalışmalarımız, yazılım ve SaaS projeleriniz için canlı bir referans. Fikirden çalışan ilk sürüme kısa sürede ulaşıyoruz.</span><span class="en">Our work across the Atlasverse ecosystem is a living reference for your software and SaaS projects. We get from idea to a working first version quickly.</span></p>
+  <div class="cta">
+    <a class="btn" href="#talep"><span class="tr">Proje talebi gönder</span><span class="en">Send a project request</span></a>
+    <a class="btn alt" href="#tum"><span class="tr">Tüm 45 plâtformu gör</span><span class="en">See all 45 platforms</span></a>
+  </div>
+  <div class="stats">
+    <div class="stat"><b>45</b><span class="tr">plâtform</span><span class="en">platforms</span></div>
+    <div class="stat"><b>7</b><span class="tr">sektör grubu</span><span class="en">sector groups</span></div>
+    <div class="stat"><b>TR · EN</b><span class="tr">iki dilli</span><span class="en">bilingual</span></div>
+  </div>
+</div></section>
+
+<section id="hizmet"><div class="wrap">
+  <h2><span class="tr">Neler yapıyoruz?</span><span class="en">What we build</span></h2>
+  <p class="lead"><span class="tr">Aynı altyapıyı defalarca kurmuş olmanın hızı: hazır parçalar, sizin ihtiyacınıza göre.</span><span class="en">The speed of having built the same foundations many times: ready parts, shaped to your needs.</span></p>
+  <div class="cards">
+    <div class="card"><div class="ico">🚀</div><h3><span class="tr">MVP ve tanıtım sayfası</span><span class="en">MVP and landing page</span></h3><p><span class="tr">Fikrinizi hızla test edeceğiniz, iki dilli, telefonda kusursuz çalışan ilk sürüm.</span><span class="en">A bilingual first version that works flawlessly on phones, to test your idea fast.</span></p></div>
+    <div class="card"><div class="ico">🧩</div><h3><span class="tr">SaaS ve web uygulaması</span><span class="en">SaaS and web apps</span></h3><p><span class="tr">Next.js, Supabase ve Vercel ile üyelik, panel ve veri katmanı.</span><span class="en">Membership, dashboards and data layer with Next.js, Supabase and Vercel.</span></p></div>
+    <div class="card"><div class="ico">🛒</div><h3><span class="tr">E-ticaret ve ödeme</span><span class="en">E-commerce and payments</span></h3><p><span class="tr">Pazar yeri, sepet ve iyzico ödeme akışı; çok satıcılı yapılar.</span><span class="en">Marketplaces, carts and iyzico payment flows; multi-vendor setups.</span></p></div>
+    <div class="card"><div class="ico">🤖</div><h3><span class="tr">Yapay zekâ ve otomasyon</span><span class="en">AI and automation</span></h3><p><span class="tr">Make.com ve yapay zekâ ajanlarıyla tekrar eden işleri otomatikleştirme.</span><span class="en">Automating repetitive work with Make.com and AI agents.</span></p></div>
+    <div class="card"><div class="ico">🛡️</div><h3><span class="tr">Belge doğrulama</span><span class="en">Document verification</span></h3><p><span class="tr">Öğrenci, diploma ve işletme belgeleri için kendi onay kuyruğunuz: Atlas Verify.</span><span class="en">Your own approval queue for student, diploma and business documents: Atlas Verify.</span></p></div>
+  </div>
+</div></section>
+
+<section id="secilmis"><div class="wrap">
+  <h2><span class="tr">Seçilmiş çalışmalar</span><span class="en">Selected work</span></h2>
+  <p class="lead"><span class="tr">Farklı alanlardan beş örnek. Her kartda gerçek çalışma durumu yazıyor.</span><span class="en">Five examples from different fields. Each card shows its real status.</span></p>
+  <div class="feat" id="feat"></div>
+</div></section>
+
+<section id="tum"><div class="wrap">
+  <h2><span class="tr">Tüm plâtformlar</span><span class="en">All platforms</span></h2>
+  <div class="legend">
+    <span><span class="badge b-proto"><span class="tr">Prototip</span><span class="en">Prototype</span></span> <span class="tr">çalışan ilk sürüm / MVP sayfası</span><span class="en">working first version / MVP page</span></span>
+    <span><span class="badge b-plan"><span class="tr">Planlanan</span><span class="en">Planned</span></span> <span class="tr">tasarım aşamasında</span><span class="en">in design</span></span>
+  </div>
+  <div class="filters" id="filters" role="tablist"></div>
+  <div class="grid" id="grid"></div>
+</div></section>
+
+<section><div class="wrap">
+  <h2><span class="tr">Nasıl çalışıyoruz?</span><span class="en">How we work</span></h2>
+  <div class="steps">
+    <div class="card"><h3><span class="tr">Dinleriz</span><span class="en">We listen</span></h3><p><span class="tr">Talebinizi okur, kapsamı ve süreyi size net bir dille yazarız.</span><span class="en">We read your request and write scope and timing in plain words.</span></p></div>
+    <div class="card"><h3><span class="tr">Prototip kurarız</span><span class="en">We prototype</span></h3><p><span class="tr">Çalışan ilk sürümü hızla gösterir, geri bildiriminizle şekillendiririz.</span><span class="en">We show a working first version fast and shape it with your feedback.</span></p></div>
+    <div class="card"><h3><span class="tr">Yayına alırız</span><span class="en">We launch</span></h3><p><span class="tr">Barındırma, alan adı ve devir: çalışır halde teslim ederiz.</span><span class="en">Hosting, domain and handover: delivered in working order.</span></p></div>
+  </div>
+</div></section>
+
+<section id="talep"><div class="wrap">
+  <h2><span class="tr">Proje talebi</span><span class="en">Project request</span></h2>
+  <p class="lead"><span class="tr">Birkaç satır yeterli. Talebiniz e-posta taslağı olarak açılır; dilerseniz WhatsApp'tan da yazabilirsiniz.</span><span class="en">A few lines are enough. Your request opens as an email draft; you can also write on WhatsApp.</span></p>
+  <form id="frm" novalidate>
+    <div class="row2">
+      <label><span class="tr">Ad Soyad</span><span class="en">Full name</span><input id="fn" autocomplete="name" maxlength="120"></label>
+      <label><span class="tr">E-posta</span><span class="en">Email</span><input id="fe" type="email" autocomplete="email" maxlength="200"></label>
+    </div>
+    <label><span class="tr">Ne tür bir proje?</span><span class="en">What kind of project?</span>
+      <select id="ft">
+        <option value="MVP">MVP / landing page</option>
+        <option value="SaaS">SaaS / web app</option>
+        <option value="E-commerce">E-ticaret / E-commerce</option>
+        <option value="AI">AI / Otomasyon</option>
+        <option value="Verify">Atlas Verify</option>
+        <option value="Other">Diğer / Other</option>
+      </select></label>
+    <label><span class="tr">Kısaca anlatın</span><span class="en">Tell us briefly</span><textarea id="fm" maxlength="2000"></textarea></label>
+    <div class="cta">
+      <button class="btn" type="submit"><span class="tr">E-posta taslağını aç</span><span class="en">Open email draft</span></button>
+      <a class="btn alt" id="wa" href="https://wa.me/905513646532" target="_blank" rel="noopener">WhatsApp</a>
+    </div>
+    <p class="note"><span class="tr">Bu form bir sunucuya veri kaydetmez; yalnızca e-posta uygulamanızda taslak oluşturur.</span><span class="en">This form does not store data on a server; it only creates a draft in your email app.</span></p>
+  </form>
+</div></section>
+</main>
+
+<footer><div class="wrap">
+  <div>© 2026 Atlas Works Türkiye · AtlasVerse Digitalia Group Ltd (United Kingdom)</div>
+  <div style="margin-top:6px"><a href="./index.html"><span class="tr">← AtlasVerse ana sayfa</span><span class="en">← AtlasVerse home</span></a></div>
+</div></footer>
+
+<script>
+var DATA = [{"n": "TreniYakala", "c": "featured", "s": "proto", "tr": "En büyük flaş indirim ve toplu alışveriş plâtformumuz", "en": "Our largest flash-deal and group-shopping platform"}, {"n": "OrosBurcu · 13. Burç", "c": "vip", "s": "proto", "tr": "Burçların ötesindeki burç", "en": "The sign beyond the zodiac"}, {"n": "Goldenarius", "c": "vip", "s": "proto", "tr": "Davetiye bazlı, ultra premium koleksiyon parçaları", "en": "Invitation-only, ultra-premium collectible pieces"}, {"n": "Bijuteria", "c": "vip", "s": "proto", "tr": "Üretici ve toptancılardan VIP ürünler pazaryeri", "en": "A marketplace of VIP products from makers and wholesalers"}, {"n": "Mottootto", "c": "vip", "s": "plan", "tr": "Sadece 8 niş üründen oluşan özel kozmetik dropshipping ve üretim markası", "en": "A special cosmetics dropshipping and production brand made of just 8 niche products"}, {"n": "PatronOros", "c": "vip", "s": "proto", "tr": "Patronların Dünyası", "en": "The world of business leaders"}, {"n": "Guubist", "c": "kids", "s": "proto", "tr": "Çocukların kendi şarkılarını kaydettiği plâtform", "en": "A platform where children record their own songs"}, {"n": "ZekaZekat", "c": "kids", "s": "proto", "tr": "Çocuklar için bilgelik ve iyilik paylaşım plâtformu", "en": "A wisdom and kindness-sharing platform for children"}, {"n": "YakalaTreni", "c": "kids", "s": "proto", "tr": "Çocuklar için tren yakalama oyunu", "en": "A train-catching game for children"}, {"n": "Antbee", "c": "kids", "s": "proto", "tr": "Çocuklar için girişimcilik ve eğitim plâtformu", "en": "An entrepreneurship and education platform for children"}, {"n": "Geminiboyat", "c": "kids", "s": "proto", "tr": "Çocuklar için gemi boyama oyunu", "en": "A ship-coloring game for children"}, {"n": "Gemini Say", "c": "kids", "s": "proto", "tr": "Çocuklar için gemi sayma oyunu", "en": "A ship-counting game for children"}, {"n": "Trendyol.ing", "c": "kids", "s": "proto", "tr": "Çocuklar için oyun temalı, alışveriş konseptli İngilizce öğrenme plâtformu; Türkçenin yanı sıra diğer dillerle de", "en": "A game-themed, shopping-concept platform where children learn English, with Turkish and other languages alongside"}, {"n": "Talentology", "c": "talent", "s": "proto", "tr": "Her alanda yeteneklerin sergilendiği plâtform", "en": "A platform that showcases talent in every field"}, {"n": "TheFilmİstan", "c": "talent", "s": "proto", "tr": "Öğrenciler için sinema, tiyatro, opera ve özgün senaryo kısa film yarışması", "en": "A cinema, theatre, opera and original-script short-film contest for students"}, {"n": "TheFilmİslam", "c": "talent", "s": "proto", "tr": "İslam, İslam tarihi ve İslamiyet'le ilgili kısa videoların yapıldığı ve yarışıldığı plâtform", "en": "A platform where short videos about Islam and Islamic history are made and entered into contests"}, {"n": "TALENTUBE.TV", "c": "talent", "s": "proto", "tr": "Canlı yayın internet televizyonu: diğer plâtformlarımızın kazananları burada canlı yayına çıkar", "en": "A live-streaming internet TV channel where winners from our other platforms go live"}, {"n": "GeminiWarSay", "c": "talent", "s": "proto", "tr": "Münazara ve tartışma projesi", "en": "A debate and discussion project"}, {"n": "Bestele", "c": "talent", "s": "proto", "tr": "Müzik besteleme plâtformu", "en": "A music composition platform"}, {"n": "YesmusiX", "c": "talent", "s": "proto", "tr": "İnteraktif müzik eğitim plâtformu", "en": "An interactive music education platform"}, {"n": "DanaKoyun", "c": "market", "s": "proto", "tr": "Canlı hayvan pazarı", "en": "A live-animal marketplace"}, {"n": "TenEnteresans", "c": "market", "s": "proto", "tr": "Küratörlü esans ve parfüm pazarı", "en": "A curated fragrance and perfume marketplace"}, {"n": "Balbaari", "c": "market", "s": "proto", "tr": "Bal satış plâtformu", "en": "A honey sales platform"}, {"n": "inciir", "c": "market", "s": "plan", "tr": "İncir satış plâtformu", "en": "A fig sales platform"}, {"n": "Silveristan", "c": "market", "s": "proto", "tr": "Gümüş pazarı", "en": "A silver marketplace"}, {"n": "İpek Pazarı", "c": "market", "s": "plan", "tr": "İpek ürünleri pazarı", "en": "A marketplace for silk products"}, {"n": "Bahçeden", "c": "market", "s": "proto", "tr": "Bahçe ürünleri pazarı", "en": "A garden produce marketplace"}, {"n": "İMECEGELSİN", "c": "community", "s": "proto", "tr": "Mahalle imece usulü toplu alışveriş plâtformu", "en": "A neighbourhood-style collective shopping platform"}, {"n": "İmeceTreni", "c": "community", "s": "proto", "tr": "Toplu alışveriş lojistik ve teslimat kolu", "en": "The logistics and delivery arm of collective shopping"}, {"n": "KulOl", "c": "community", "s": "proto", "tr": "Özellikle Türkiye ve Türkçe bilenler için \"kul olma\" bilinci uygulaması; İngilizce tarafda da yer alacak", "en": "An app for the awareness of \"being a servant of God\", made especially for people in Türkiye and Turkish speakers; it will also be available on the English side"}, {"n": "Notedreams", "c": "community", "s": "proto", "tr": "Rüyalarını not etme plâtformu", "en": "A platform for noting down your dreams"}, {"n": "NOTYETZ", "c": "community", "s": "proto", "tr": "\"Henüz her şey bitmedi\": dijitâl miras plâtformu", "en": "\"Not everything is over yet\": a digital legacy platform"}, {"n": "Kaderdash", "c": "community", "s": "proto", "tr": "Kader birliği yapan topluluklar için güven ağı", "en": "A trust network for communities that share a fate"}, {"n": "CasanovaGift", "c": "community", "s": "proto", "tr": "Çiftler için özel hediye paylaşım ve ticaret pazarı", "en": "A special gift-sharing and trading marketplace for couples"}, {"n": "The Mind Peer", "c": "community", "s": "plan", "tr": "Telepatik iletişim hazırlık uygulaması", "en": "A telepathic-communication preparation app"}, {"n": "LetsBeFit", "c": "community", "s": "proto", "tr": "Zayıflama ve zayıf kalma plâtformu", "en": "A platform for losing weight and staying slim"}, {"n": "Pipiano", "c": "edu", "s": "proto", "tr": "Piyano dersleri, üretimi ve ikinci el pazarı", "en": "Piano lessons, craftsmanship and a second-hand market"}, {"n": "imamgil", "c": "edu", "s": "proto", "tr": "Hac & Umre kıyafet plâtformu", "en": "A Hajj & Umrah clothing platform"}, {"n": "OkulBuCool", "c": "edu", "s": "proto", "tr": "Okul e-ticaret plâtformu", "en": "A school e-commerce platform"}, {"n": "YemekEmek", "c": "edu", "s": "proto", "tr": "Ev yemeği plâtformu (evyemegi.co üzerinden de)", "en": "A home-cooked meal platform (also via evyemegi.co)"}, {"n": "imzaam", "c": "edu", "s": "proto", "tr": "Dijitâl kimlik ve imza plâtformu", "en": "A digital identity and signature platform"}, {"n": "Makeaway", "c": "edu", "s": "proto", "tr": "Yapay zekâ aksiyon ajanı SaaS merkezi", "en": "An AI action-agent SaaS hub"}, {"n": "BrandTrain", "c": "edu", "s": "plan", "tr": "Uluslararası markaların tren ve vagonları; hem Türkçe hem İngilizce tarafda", "en": "Trains and wagons of international brands, on both the Turkish and English sides"}, {"n": "indream.ing", "c": "edu", "s": "proto", "tr": "\"Her daim indirim\" günlük fırsat plâtformu", "en": "An \"always a discount\" daily-deals platform"}, {"n": "GemininEvreni", "c": "edu", "s": "proto", "tr": "Bütün \"Gemi\" projelerimizin üst çatısı", "en": "The umbrella of all our \"Gemi\" projects"}];
+var FEAT = [{"n": "TreniYakala", "tr": "Toplu alışveriş ve flaş indirim: vagon mantığıyla markaları ve alıcıları aynı yolculukta buluşturan e-ticaret modeli.", "en": "Group buying and flash deals: an e-commerce model that puts brands and buyers on the same journey, wagon by wagon.", "ttr": ["E-ticaret", "Toplu alım", "Ödeme"], "ten": ["E-commerce", "Group buying", "Payments"], "s": "proto"}, {"n": "Talentology", "tr": "Her alanda yeteneklerin yarıştığı plâtform; yayın kolu TALENTUBE.TV ile birlikte çalışır.", "en": "A platform where talent in every field competes, working together with its broadcast arm TALENTUBE.TV.", "ttr": ["Yarışma", "Next.js 14", "Yayın"], "ten": ["Competition", "Next.js 14", "Broadcast"], "s": "proto"}, {"n": "YesmusiX", "tr": "Tarayıcıda çalışan interaktif klavye ve müzik eğitimi deneyimi (Web MIDI / Web Audio).", "en": "An interactive keyboard and music-learning experience that runs in the browser (Web MIDI / Web Audio).", "ttr": ["Web Audio", "Eğitim", "Tek sayfa"], "ten": ["Web Audio", "Education", "Single page"], "s": "proto"}, {"n": "ZekaZekat", "tr": "Çocuklar için bilgelik ve iyilik paylaşımı; yaş gruplarına göre karakterler ve Supabase arka ucu.", "en": "Wisdom and kindness sharing for children, with age-based characters and a Supabase backend.", "ttr": ["Çocuk", "Supabase", "Oyunlaştırma"], "ten": ["Kids", "Supabase", "Gamification"], "s": "proto"}, {"n": "Makeaway", "tr": "Yapay zekâ aksiyon ajanlarının toplandığı SaaS merkezi: fikirden otomasyona.", "en": "A SaaS hub for AI action agents: from idea to automation.", "ttr": ["Yapay zekâ", "SaaS", "Otomasyon"], "ten": ["AI", "SaaS", "Automation"], "s": "proto"}];
+var CATS = [
+  ['all',{tr:'Tümü',en:'All'}],['featured',{tr:'Öne Çıkan',en:'Featured'}],['vip',{tr:'VIP & Yaşam Tarzı',en:'VIP & Lifestyle'}],
+  ['kids',{tr:'Çocuklar İçin',en:'For Kids'}],['talent',{tr:'Yetenek & Medya',en:'Talent & Media'}],
+  ['market',{tr:'Pazar Yerleri',en:'Marketplaces'}],['community',{tr:'Topluluk & Yaşam',en:'Community & Life'}],
+  ['edu',{tr:'Eğitim, Ticaret & Araçlar',en:'Education, Trade & Tools'}]
+];
+var ST = {proto:{tr:'Prototip',en:'Prototype',c:'b-proto'}, plan:{tr:'Planlanan',en:'Planned',c:'b-plan'}, live:{tr:'Canlı',en:'Live',c:'b-live'}};
+var lang='tr', theme='day', cat='all';
+try{ var l=localStorage.getItem('av_lang'); if(l==='tr'||l==='en') lang=l; var t=localStorage.getItem('av_theme'); if(t==='day'||t==='night') theme=t; }catch(e){}
+function esc(s){return String(s).replace(/[&<>"]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]});}
+function badge(s){var x=ST[s]; return '<span class="badge '+x.c+'">'+x[lang]+'</span>';}
+function renderFeat(){
+  document.getElementById('feat').innerHTML = FEAT.map(function(f){
+    return '<article class="card"><h3>'+esc(f.n)+' '+badge(f.s)+'</h3><p>'+esc(f[lang])+'</p><div class="tags">'+
+      (lang==='tr'?f.ttr:f.ten).map(function(x){return '<span class="tag">'+esc(x)+'</span>';}).join('')+'</div></article>';
+  }).join('');
+}
+function renderFilters(){
+  var cnt={all:DATA.length}; DATA.forEach(function(d){cnt[d.c]=(cnt[d.c]||0)+1;});
+  document.getElementById('filters').innerHTML = CATS.map(function(c){
+    return '<button type="button" class="chip'+(c[0]===cat?' on':'')+'" data-c="'+c[0]+'">'+c[1][lang]+' ('+(cnt[c[0]]||0)+')</button>';
+  }).join('');
+  Array.prototype.forEach.call(document.querySelectorAll('#filters .chip'),function(b){
+    b.addEventListener('click',function(){cat=b.getAttribute('data-c');renderFilters();renderGrid();});
+  });
+}
+function renderGrid(){
+  document.getElementById('grid').innerHTML = DATA.filter(function(d){return cat==='all'||d.c===cat;}).map(function(d){
+    return '<div class="item"><div class="h"><b>'+esc(d.n)+'</b>'+badge(d.s)+'</div><p>'+esc(d[lang])+'</p></div>';
+  }).join('');
+}
+function apply(){
+  document.documentElement.lang=lang; document.documentElement.setAttribute('data-theme',theme);
+  document.getElementById('bTr').classList.toggle('on',lang==='tr'); document.getElementById('bEn').classList.toggle('on',lang==='en');
+  renderFeat(); renderFilters(); renderGrid();
+}
+document.getElementById('bTr').addEventListener('click',function(){lang='tr';try{localStorage.setItem('av_lang',lang);}catch(e){} apply();});
+document.getElementById('bEn').addEventListener('click',function(){lang='en';try{localStorage.setItem('av_lang',lang);}catch(e){} apply();});
+document.getElementById('bTh').addEventListener('click',function(){theme=theme==='day'?'night':'day';try{localStorage.setItem('av_theme',theme);}catch(e){} apply();});
+document.getElementById('frm').addEventListener('submit',function(e){
+  e.preventDefault();
+  var n=document.getElementById('fn').value.trim(), m=document.getElementById('fe').value.trim(),
+      t=document.getElementById('ft').value, b=document.getElementById('fm').value.trim();
+  var body=(lang==='tr'?'Ad Soyad: ':'Name: ')+n+'\n'+(lang==='tr'?'E-posta: ':'Email: ')+m+'\n'+(lang==='tr'?'Proje türü: ':'Project type: ')+t+'\n\n'+b;
+  window.location.href='mailto:atlas@atlasverse.co.uk?subject='+encodeURIComponent('Proje talebi / Project request: '+t)+'&body='+encodeURIComponent(body);
+});
+['fn','fm','ft'].forEach(function(id){document.getElementById(id).addEventListener('input',function(){
+  var txt=(lang==='tr'?'Merhaba, proje talebim: ':'Hello, my project request: ')+document.getElementById('ft').value+' - '+document.getElementById('fm').value.trim();
+  document.getElementById('wa').href='https://wa.me/905513646532?text='+encodeURIComponent(txt);
+});});
+apply();
+</script>
+</body>
+</html>
