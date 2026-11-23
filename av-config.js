@@ -11,3 +11,6 @@
 window.AV_KID_LIVE = false;
 /* İstediğin başka bir kartı gizlemek için kart numarasını yaz, örnek: window.AV_HIDDEN = [25, 31]; */
 window.AV_HIDDEN = [];
+
+/* Yayında olan proje domainleri. Bir domain hazır olunca buraya yaz (örnek: window.AV_LIVE_DOMAINS = ["figolive.com", "balbaari.com"];). Listede olmayan domainlere dokunulunca "çok yakında hizmetinizde" mesajı çıkar. */
+window.AV_LIVE_DOMAINS = [];
